@@ -25,7 +25,7 @@ const AddProduct = () => {
     // }
 
     useEffect(() => {
-        fetch(`https://resell-bike-guru.vercel.app/checkSeller/${user?.email}`)
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/checkSeller/${user?.email}`)
             .then(res => res.json())
             .then(data => setSellerStatus(data.message))
     }, [user?.email])
@@ -38,7 +38,7 @@ const AddProduct = () => {
         data.postingDate = formattedToday;
         data.status = 'unsold';
         data.sellerStatus = sellerStatus;
-        fetch('https://resell-bike-guru.vercel.app/product', {
+        fetch('https://resell-bike-guru-mashrufhasan.vercel.app/product', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

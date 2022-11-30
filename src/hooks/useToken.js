@@ -5,7 +5,7 @@ const useToken = email => {
     const [adminLoader, setAdminLoader] = useState(true)
     useEffect(() => {
         if (email) {
-            fetch(`https://resell-bike-guru.vercel.app/jwt?email=${email}`)
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.accessToken) {

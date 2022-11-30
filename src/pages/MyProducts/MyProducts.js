@@ -2,35 +2,30 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Auth/Authprovider';
+import Loader from '../../components/Loader/Loader';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext)
     const { isLoading, refetch, data: myOrders = [] } = useQuery({
         queryKey: ['myProducts', user?.email],
         queryFn: () =>
-            fetch(`https://resell-bike-guru.vercel.app/myProducts?email=${user?.email}`)
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/myProducts?email=${user?.email}`)
                 .then(res => res.json())
     })
 
-    if (isLoading) return 'Loading...'
+    if (isLoading) return <Loader />
 
     const deleteItem = order => {
         console.log(order._id)
-        fetch(`https://resell-bike-guru.vercel.app/deleteProducts/${order._id}`, {
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/deleteProducts/${order._id}`, {
             method: 'DELETE'
         })
             .then((response) => response.json())
             .then((data) => {
                 if (data.acknowledged) {
                     toast.success(`${order.name} is deleted`)
-                    fetch(`https://resell-bike-guru.vercel.app/advertisedItem/${order._id}`, {
-                        method: 'DELETE'
-                    })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            console.log(data)
-                            refetch()
-                        })
+                    console.log(data)
+                    refetch()
                 }
             })
             .catch((error) => {
@@ -40,16 +35,11 @@ const MyProducts = () => {
 
     const advertiseItem = order => {
         console.log(order)
-        fetch('https://resell-bike-guru.vercel.app/advertisedItem', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(order),
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/products/${order?._id}`, {
+            method: 'PUT', // or 'PUT'
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Success:', data);
                 if (data.acknowledged) {
                     toast.success(`${order.name} is showing on advertise`)
                 }

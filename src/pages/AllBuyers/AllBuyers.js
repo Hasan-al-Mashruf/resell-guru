@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import Loader from '../../components/Loader/Loader';
 
 const AllBuyers = () => {
     const { isLoading, data: allBuyers = [], refetch } = useQuery({
         queryKey: ['allBuyers'],
         queryFn: () =>
-            fetch(`https://resell-bike-guru.vercel.app/allBuyers`, {
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/allBuyers`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -14,10 +15,10 @@ const AllBuyers = () => {
                 .then(res => res.json())
     })
 
-    if (isLoading) return 'Loading...';
+    if (isLoading) return <Loader />;
 
     const deleteBuyers = buyer => {
-        fetch(`https://resell-bike-guru.vercel.app/deleteSellers/${buyer._id}`, {
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/deleteSellers/${buyer._id}`, {
             method: 'DELETE'
         })
             .then((response) => response.json())

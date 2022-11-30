@@ -5,7 +5,7 @@ const useSaveUser = (myUser) => {
     const [adminLoader, setAdminLoader] = useState(true)
     useEffect(() => {
         if (myUser) {
-            fetch('https://resell-bike-guru.vercel.app/myUsers', {
+            fetch('https://resell-bike-guru-mashrufhasan.vercel.app/myUsers', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

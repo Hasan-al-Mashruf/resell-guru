@@ -17,7 +17,7 @@ const Signin = () => {
     const from = location.state?.from?.pathname || "/";
 
     // if (adminLoader) {
-    //     return 'Loading.....'
+    //     return '<Loader />..'
     // }
     useEffect(() => {
         if (token) {
@@ -54,7 +54,7 @@ const Signin = () => {
 
     const saveMyUsers = (myUser) => {
         console.log(myUser)
-        fetch('https://resell-bike-guru.vercel.app/myUsers', {
+        fetch('https://resell-bike-guru-mashrufhasan.vercel.app/myUsers', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

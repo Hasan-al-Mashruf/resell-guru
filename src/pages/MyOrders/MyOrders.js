@@ -1,13 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Auth/Authprovider';
+import Loader from '../../components/Loader/Loader';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext)
     const { isLoading, data: myOrders = [] } = useQuery({
         queryKey: ['orders', user?.email],
         queryFn: () =>
-            fetch(`https://resell-bike-guru.vercel.app/orders?email=${user?.email}`, {
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/orders?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -15,7 +16,7 @@ const MyOrders = () => {
                 .then(res => res.json())
     })
 
-    if (isLoading) return 'Loading...'
+    if (isLoading) return <Loader />
 
     return (
         <div>

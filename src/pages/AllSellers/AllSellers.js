@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import Loader from '../../components/Loader/Loader';
 
 const AllSellers = () => {
     const { isLoading, data: allSellers = [], refetch } = useQuery({
         queryKey: ['allSellers'],
         queryFn: () =>
-            fetch(`https://resell-bike-guru.vercel.app/allSellers`, {
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/allSellers`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -14,10 +15,10 @@ const AllSellers = () => {
                 .then(res => res.json())
     })
 
-    if (isLoading) return 'Loading...';
+    if (isLoading) return <Loader />;
 
     const deleteSellers = seller => {
-        fetch(`https://resell-bike-guru.vercel.app/deleteSellers/${seller._id}`, {
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/deleteSellers/${seller._id}`, {
             method: 'DELETE'
         })
             .then((response) => response.json())
@@ -34,7 +35,7 @@ const AllSellers = () => {
 
     const verifySellers = seller => {
         console.log(seller)
-        fetch(`https://resell-bike-guru.vercel.app/verifySeller/${seller?._id}`, {
+        fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/verifySeller/${seller?._id}`, {
             method: 'PUT', // or 'PUT'
         })
             .then((response) => response.json())

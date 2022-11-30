@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 const Categories = () => {
 
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch(`https://resell-bike-guru.vercel.app/categories`, {
+        queryFn: () => fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/categories`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -14,15 +15,15 @@ const Categories = () => {
     })
 
     if (isLoading) {
-        return 'Loading...........'
+        return <Loader />
     }
 
     return (
-        <div>
+        <div className=''>
             <div className='text-center mt-16 mb-10'>
                 <h3 className="text-3xl capitalize text-bold">product <span className='bg-neutral px-3 py-2 rounded-lg text-white'>categories</span></h3>
             </div>
-            <div className='grid grid-cols-3 gap-5 my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-10 md:p-0 px-5'>
                 {categories?.map(cat =>
                     <React.Fragment key={cat?._id}>
                         <div className="card bg-base-100 shadow-xl">

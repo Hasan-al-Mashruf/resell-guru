@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             { path: "/signup", element: <Signup /> },
             {
                 path: "/selectProducts/:name",
-                loader: ({ params }) => fetch(`https://resell-bike-guru.vercel.app/products/${params.name}`, {
+                loader: ({ params }) => fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/products/${params.name}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }

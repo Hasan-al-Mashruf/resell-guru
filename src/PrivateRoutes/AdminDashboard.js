@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Auth/Authprovider';
+import Loader from '../components/Loader/Loader';
 import useAdmin from '../hooks/useAdmin';
 
 const AdminDashboard = ({ children }) => {
@@ -9,7 +10,7 @@ const AdminDashboard = ({ children }) => {
     const [admin, adminLoader] = useAdmin(user?.email);
 
     if (adminLoader || loader) {
-        return <h2>Loading.............</h2>
+        return <h2><Loader />..........</h2>
     }
 
     if (user?.email && admin) {

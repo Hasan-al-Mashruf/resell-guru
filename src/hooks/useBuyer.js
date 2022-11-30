@@ -5,7 +5,7 @@ const useBuyer = email => {
     const [adminLoader, setAdminLoader] = useState(true)
     useEffect(() => {
         if (email) {
-            fetch(`https://resell-bike-guru.vercel.app/user/buyer/${email}`)
+            fetch(`https://resell-bike-guru-mashrufhasan.vercel.app/user/buyer/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setBuyer(data.isAdmin)

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Auth/Authprovider';
+import Loader from '../components/Loader/Loader';
 import useSeller from '../hooks/useSeller';
 
 const SellerDashboard = ({ children }) => {
@@ -10,9 +11,9 @@ const SellerDashboard = ({ children }) => {
     const [seller, adminLoader] = useSeller(user?.email);
 
     if (adminLoader || loader) {
-        return <h2>Loading.............</h2>
+        return <h2><Loader />..........</h2>
     }
-    
+
     console.log(seller)
     if (user?.email && seller) {
         return children;

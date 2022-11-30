@@ -26,7 +26,7 @@ const Modal = ({ setOpenModal, openProduct, displayToast }) => {
             location
         }
         console.log(order)
-        fetch('https://resell-bike-guru.vercel.app/orders', {
+        fetch('https://resell-bike-guru-mashrufhasan.vercel.app/orders', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
