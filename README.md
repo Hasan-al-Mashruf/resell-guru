@@ -1,2 +1,2 @@
-adminEmail: alhasanmashruf@gmail.com
-adminPassword: 123456$
+# adminEmail: alhasanmashruf@gmail.com
+# adminPassword: 123456$
