@@ -1,0 +1,35 @@
+// [
+//     {
+//         "name": "Phoenix Bicycle",
+//         "image": "https://i.ibb.co/sWg92hm/pexels-vinayak-varlikar-2591990.jpg",
+//         "location" : "Shantinagar, Dhaka",
+//         "resale price" : 16000,
+//         "original price" : 26000,
+//         "years of use": 1,
+//         "sellers name": "hasan",
+//         "posting date": "Nov 27 2022",
+//         "category": "Gear Cycle"
+//     },
+//     {
+//         "name": " Diamondback Bike",
+//         "image": "https://i.ibb.co/0yGgvQC/pexels-rodnae-productions-5836935.jpg",
+//         "location" : "Mirpur, Dhaka",
+//         "resale price" : 7000,
+//         "original price" : 18000,
+//         "years of use": 2,
+//         "sellers name": "Rahim",
+//         "posting date": "Nov 27 2022",
+//         "category": "Gear Cycle"
+//     },
+//     {
+//         "name": " Diamondback Bike",
+//         "image": "https://i.ibb.co/GvKKwYg/pexels-josh-kur-1750272.jpg",
+//         "location" : "Moghbazar, Dhaka",
+//         "resale price" : 6000,
+//         "original price" : 20000,
+//         "years of use": 1,
+//         "sellers name": "Fahim",
+//         "posting date": "Nov 27 2022",
+//         "category": "Stunt cycle"
+//     }
+// ]
